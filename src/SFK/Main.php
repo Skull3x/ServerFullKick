@@ -14,21 +14,21 @@ class Main extends PluginBase implements Listener{
 public function onLoad(){
 @mkdir($this->getDataFolder());
 if(!file_exists($this->getDataFolder())){
-			$this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-			$this->config->set("Full-Message", "Server is full try again later!");
-			}
-$this->getServer()->getLogger()->info("[ServerFullKick]Plugin Loading!");
+    $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+    $this->config->set("Full-Message", "Server is full try again later!");
+    $this->getServer()->getLogger()->info("Plugin Loading!");
 }
 
 public function onEnable(){
-$this->getServer()->getLogger()->info("[ServerFullKick]Plugin Loaded!");
+$this->getServer()->getLogger()->info("Plugin Loaded!");
 }
 
 public function onPreLogin(PlayerPreLoginEvent $ev){
-$p = $ev->getPlayer();
-$cfg = $this->config->getAll();
- if(count($this->getServer()->getOnlinePlayers()) >= $this->getServer()->getMaxPlayers()){
- $p->kick($cfg["Full-Message");
- }
- }
- }
+    $p = $ev->getPlayer();
+    $cfg = $this->config->getAll();
+    if(count($this->getServer()->getOnlinePlayers()) >= $this->getServer()->getMaxPlayers()){
+        $p->kick($cfg["Full-Message"]);
+    }
+}
+}
+}
